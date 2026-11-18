@@ -10,6 +10,9 @@
   <!--<link rel="preconnect" href="https://fonts.googleapis.com" />-->
   <!--<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />-->
   <!--<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />-->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Play:wght@400;700&display=swap" rel="stylesheet">
 
   <link rel="stylesheet" href="style.css">
 </head>
@@ -22,24 +25,24 @@
     <!-- Hero -->
     <section class="hero container">
       <h1>
-        Мария Зайцева,<br><span class="gradient-text">ИИ-инженер</span>
+        # Портфолио
       </h1>
+      <h2>
+        Мария Зайцева, <span class="gradient-text">ИИ-инженер</span>
+      </h2>
       <p>
-        Я Мария Зайцева, современный разработчик, фокусирующийся на LLM-процессах,
-        всякой такой штуке, знаешь
+        Я специализируюсь на прикладном ИИ. Мне нравится встраивать модели
+        в удобные веб-сервисы. Здесь собраны рабочие проекты
+        с исходниками на GitHub, примерами генерации и разбором архитектуры.
       </p>
       <div class="hero-actions">
-        <a href="#contact" class="btn btn-primary">
-          Мои контакты
-          <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
-          </svg>
-        </a>
-        <a href="https://github.com/tail-call" target="_blank" rel="noreferrer" class="btn btn-secondary">
-          GitHub
-        </a>
-        <a href="https://t.me/poisonedpoisson" target="_blank" rel="noreferrer" class="btn btn-secondary">
+        <a href="https://t.me/poisonedpoisson" target="_blank" class="btn btn-primary btn-primary_telegram">
           Телеграм
+          <img src="telegram.svg">
+        </a>
+        <a href="https://github.com/tail-call" target="_blank" class="btn btn-primary btn-primary_github">
+          GitHub
+          <img src="github.svg">
         </a>
       </div>
     </section>
@@ -48,7 +51,7 @@
     <section id="projects" class="container">
       <div class="section-header">
         <div>
-          <h2 class="section-title">Проекты</h2>
+          <h2 class="section-title">## Проекты</h2>
         </div>
       </div>
 
@@ -56,47 +59,77 @@
 
         <!-- Project 1 -->
         <article class="project-card" data-category="llm">
-          <div>
-            <div class="project-top">
-              <div class="project-links">
-                <a href="#" title="View Code" aria-label="GitHub repository">
-                  <img src="github.svg">
-                </a>
-                <a href="#" title="Live Demo" aria-label="Live Demo">
-                  <svg width="19" height="19" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
-                </a>
+          <div class="project-card-inside">
+            <div>
+              <h3 class="project-title">
+                <div class="project-links">
+                  <!--<a href="#" title="Live Demo" aria-label="Live Demo">
+                    <svg width="19" height="19" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
+                  </a>-->
+                  <a href="https://github.com/tail-call/BilingualAudioBookGenerator"
+                     title="Страница проекта на GitHub"
+                     aria-label="Страница проекта на GitHub">
+                    <img src="github.svg">
+                  </a>
+                </div>
+                Генератор двуязычных аудиокниг для изучения английского языка
+              </h3>
+              <div class="project-top">
               </div>
-            </div>
-            <h3 class="project-title">
-              Генератор двуязычных аудиокниг для изучения английского языка
-            </h3>
-            <div class="project-desc">
-              <p>
-                Даёшь ему PDF-файл с книгой — забираешь аудиофайл, начитанный
-                ИИ-диктором. Сначала он читает предложение на оригинальном языке,
-                затем на русском, а потом отдельно даёт переводы самым необычным
-                словам — и так читается вся книга.
-              </p>
-              <p>
-                Аудиофайл можно загрузить на телефон, чтобы слушать, пока включены белые списки.
-              </p>
-              <p>
-                <strong>Как это работает?</strong> Большая языковая модель
-                разбирает текст, выбрасывает мусор (вроде содержания или
-                издательской информации), создаёт переводы, выделяет сложные
-                слова и создаёт сценарий, который потом передаётся на озвучку
-                TTS-модели. В стандартной конфигурации
-              </p>
-              <ul>
-                <li>Всё на локальных моделях
-                  <ul>
-                  <li>LLM: Qwen3.6-35B-A3B-UD:Q4-K-M</li>
-                  </ul>
-                </li>
-                <li>Простой веб-интерфейс</li>
-                <li>Лёгкое развёртывание через Docker Compose</li>
-                <li>Прогресс не теряется, если остановить приложение раньше времени</li>
-              </ul>
+              <div class="project-desc">
+                <img src="bookaudio.png">
+                <p>
+                  Это приложение забирает PDF-файл с книгой и отдаёт аудиофайл,
+                  начитанный ИИ-диктором. Сначала он читает предложение
+                  на оригинальном языке, затем на русском, после чего отдельно
+                  даёт переводы самым необычным словам — и так читается вся книга.
+                </p>
+                <p>
+                  Аудиофайл можно скачать на телефон, чтобы слушать в дороге
+                  и учиться по пути на работу.
+                </p>
+                <div style="display: flex; justify-content: center; flex-direction: column">
+                  <p>
+                    <strong>Пример генерации:</strong>
+                  </p>
+                  <audio controls align=center>
+                    <source src="bookaudiodemo.mp3" type="audio/mpeg">
+                    Your browser does not support the audio element.
+                    Song taken from here:
+                    https://freemusicarchive.org/music/SalmonLikeTheFish/Music_for_the_Sleepy_Traveler/01_-_Zion/
+                  </audio>
+                </div>
+                <p>
+                  <strong>Как это работает?</strong> Большая языковая модель
+                  разбирает текст, выбрасывает мусор (вроде содержания или
+                  издательской информации), создаёт переводы, выделяет сложные
+                  слова и создаёт сценарий, который потом передаётся на озвучку
+                  TTS-модели. В стандартной конфигурации
+                </p>
+                <ul>
+                  <li>
+                    Всё работает на локальных моделях. Можно назначить свои, из коробки
+                    используются такие:
+                    <ul>
+                      <li><strong>LLM:</strong> Qwen3.6-35B-A3B-UD:Q4-K-M</li>
+                      <li><strong>TTS:</strong> Supertonic-3</li>
+                    </ul>
+                  </li>
+                  <li>Простой веб-интерфейс: 0 зависимостей, не нужен NPM</li>
+                  <li>Лёгкое развёртывание через <strong>Docker Compose</strong></li>
+                  <li>
+                    <strong>Персистентная очередь задач:</strong> прогресс
+                    не теряется, если что-то пойдёт не так или приложение
+                    остановится раньше времени.
+                    <ul>
+                      <li>
+                        Для реализации очереди используется паттерн PostgreSQL
+                        <a href="https://www.netdata.cloud/academy/update-skip-locked/">FOR UPDATE SKIP LOCKED</a>.
+                      </li>
+                    </ul>
+                  </li>
+                </ul>
+              </div>
             </div>
           </div>
           <div>
@@ -115,27 +148,39 @@
         <!-- Project 2 -->
         <article class="project-card" data-category="mlops">
           <div>
-            <div class="project-top">
-              <div class="project-links">
-                <a href="#" title="View Code" aria-label="GitHub repository">
-                  <img src="github.svg">
-                </a>
-              </div>
-            </div>
             <h3 class="project-title">
-              Whisper Web UI: приложение для запуска моделей транскрибации
+              <a href="https://github.com/tail-call/WhisperWebUI"
+                 title="Страница проекта на GitHub"
+                 aria-label="Страница проекта на GitHub">
+                <img src="github.svg">
+              </a>
+              Whisper Web UI
             </h3>
-            <p class="project-desc">
-              При транскрибации аудиофайлов иногда хочется не просто увидеть
-              текст
-            </p>
+            <div class="project-top">
+            </div>
+            
+            <div style="display: flex; justify-content: center">
+              <video controls poster="whisperdemo_thumbnail.jpg">
+                <source src="whisperdemo.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+              </video>
+            </div>
+
+            <div class="project-desc">
+              <p>
+                Это приложение преобразует аудиофайл с речью, переданный,
+                пользователем, в текст. Проверить качество транскрибации
+                можно с помощью встроенного плеера. Список сегментов под
+                плеером синхронизуется с проигрываемым файлом:
+                клик по сегменту перематывает плеер на его начало, а перемотка
+                плеера автоматически выделяет текущий сегмент.
+              </p>
+            </div>
           </div>
           <div>
             <div class="tech-tags">
-              <span class="tag">TensorRT-LLM</span>
-              <span class="tag">Triton</span>
-              <span class="tag">Kubernetes</span>
-              <span class="tag">Rust</span>
+              <span class="tag">FastAPI</span>
+              <span class="tag">Transformers</span>
             </div>
           </div>
         </article>
@@ -144,10 +189,11 @@
     </section>
 
     <!-- Tech Stack -->
+    <!--
     <section id="stack" class="container">
       <div class="section-header">
         <div>
-          <h2 class="section-title">Engineering Stack</h2>
+          <h2 class="section-title">## Стек/навыки</h2>
         </div>
       </div>
 
@@ -189,57 +235,27 @@
         </div>
       </div>
     </section>
+    -->
 
-    <!-- Experience -->
-    <section id="experience" class="container">
+    <!--
+    <section id="hackathons" class="container">
       <div class="section-header">
         <div>
-          <h2 class="section-title">Experience</h2>
-        </div>
-      </div>
-
-      <div class="timeline">
-        <div class="timeline-item">
-          <div class="timeline-meta">2023 — Present</div>
-          <h3 class="timeline-role">Senior AI Engineer</h3>
-          <div class="timeline-company">Nexus Labs AI · San Francisco, CA</div>
-          <p class="timeline-desc">
-            Architected the core multi-agent retrieval platform serving 2M+ daily queries. Reduced GPU inference spend by 42% through FP8 quantization, prefix caching, and dynamic batching with vLLM.
-          </p>
-        </div>
-
-        <div class="timeline-item">
-          <div class="timeline-meta">2021 — 2023</div>
-          <h3 class="timeline-role">Machine Learning Engineer</h3>
-          <div class="timeline-company">VectorScale Systems · Remote</div>
-          <p class="timeline-desc">
-            Built end-to-end computer vision and OCR pipelines using PyTorch and TensorRT for automated document ingestion, achieving 99.1% SLA uptime across distributed Kubernetes GPU nodes.
-          </p>
-        </div>
-
-        <div class="timeline-item">
-          <div class="timeline-meta">2019 — 2021</div>
-          <h3 class="timeline-role">M.S. in Computer Science (ML Track)</h3>
-          <div class="timeline-company">University of Washington</div>
-          <p class="timeline-desc">
-            Research focused on parameter-efficient fine-tuning and robust representation learning under domain shift. Published 2 workshop papers on efficient transformer attention.
-          </p>
+          <h2 class="section-title">Хакатоны</h2>
         </div>
       </div>
     </section>
+    -->
 
     <!-- Contact -->
     <section id="contact" class="container">
       <div class="contact-box">
-        <h2>Мои контакты</h2>
-        <p>
-          Whether you're scaling LLM infrastructure, shipping agentic products, or hiring for an AI engineering team, I'd love to chat.
-        </p>
+        <h1>Связаться со мной</h2>
         <div class="social-row">
-          <a href="mailto:alex@example.com" class="btn btn-primary">alex@example.com</a>
-          <a href="https://github.com" target="_blank" rel="noreferrer" class="btn btn-secondary">GitHub</a>
-          <a href="https://linkedin.com" target="_blank" rel="noreferrer" class="btn btn-secondary">LinkedIn</a>
-          <a href="https://huggingface.co" target="_blank" rel="noreferrer" class="btn btn-secondary">Hugging Face</a>
+          <a href="https://t.me/poisonedpoisson" target="_blank" class="btn btn-primary btn-primary_telegram">
+            Телеграм
+            <img src="telegram.svg">
+          </a>
         </div>
       </div>
     </section>
@@ -255,5 +271,6 @@
     // Dynamic copyright year
     document.getElementById('year').textContent = new Date().getFullYear();
   </script>
+  <script src="life-bg.js"></script>
 </body>
 </html>
